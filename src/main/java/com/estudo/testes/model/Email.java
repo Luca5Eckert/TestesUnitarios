@@ -10,7 +10,7 @@ public record Email(String valor) {
 
     public Email(String valor) {
         if (!valor.isBlank()) {
-            if (EMAIL_VALIDO.matcher(valor).matches()) {
+            if (!EMAIL_VALIDO.matcher(valor).matches()) {
                 throw new EmailSintaxeException("Sintaxe do email incorreta");
             }
 
@@ -19,6 +19,11 @@ public record Email(String valor) {
             throw new EmailEmBrancoException("Email não pode ficar em branco");
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return valor;
     }
 
     public String getValor(){

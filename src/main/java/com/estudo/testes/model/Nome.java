@@ -11,6 +11,11 @@ public record Nome(String valor) {
         this.valor = valor;
     }
 
+    @Override
+    public String toString() {
+        return valor;
+    }
+
     public String getValor(){
         return valor;
     }

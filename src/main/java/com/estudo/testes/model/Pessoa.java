@@ -2,9 +2,9 @@ package com.estudo.testes.model;
 
 import java.util.UUID;
 
-public class Pessoa {
+public abstract class Pessoa {
 
-    private UUID id;
+    private final UUID id;
     private Nome nome;
     private Email email;
 
@@ -14,12 +14,15 @@ public class Pessoa {
         this.email = email;
     }
 
-    public UUID getId() {
-        return id;
+    @Override
+    public String toString(){
+        return "Id: " + getId() + "; Nome: " + getNome() + "; Email: " + getEmail();
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public abstract TipoPessoa pegarTipo();
+
+    public UUID getId() {
+        return id;
     }
 
     public Nome getNome() {

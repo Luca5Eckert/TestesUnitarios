@@ -1,6 +1,7 @@
 package com.estudo.testes.repositorio;
 
 import com.estudo.testes.model.Pessoa;
+import com.estudo.testes.view.PessoaDto;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,4 +31,19 @@ public class PessoaRepositorio {
     }
 
 
+    public String exibirLista(){
+        StringBuilder stringBuilder = new StringBuilder();
+        int contador = 0;
+
+        for(Pessoa pessoa : listaPessoas.values()){
+            stringBuilder.append(contador).append(" - ").append(pessoa).append("\n");
+            contador++;
+        }
+        return stringBuilder.toString();
+    }
+
+
+    public Map<UUID, Pessoa> getLista() {
+        return listaPessoas;
+    }
 }
